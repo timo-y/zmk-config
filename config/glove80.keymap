@@ -74,8 +74,8 @@ ZMK_LAYER(special,
           ___           ___           ___           ___           ___           ___                                                                                             ___           ___           ___           ___           ___           ___
           ___           &kp DE_DEG    &kp DE_UNDS   &kp DE_LBRC   &kp DE_RBRC   &ud DE_CARET                                                                                    &kp DE_EXLM   &kp DE_LT     &kp DE_GT     &kp DE_EQL    &kp DE_AMPR   &kp DE_SECT
           ___        &ct LSHIFT DE_BSLS &ct LWIN DE_SLSH &ct LALT DE_LCBR &ct LCTRL DE_RCBR &kp DE_ASTR                                                                      &kp DE_QUES &ct LCTRL DE_LPRN &ct LALT DE_RPRN &ct LWIN DE_MINUS &ct LSHIFT DE_COLN &kp DE_AT
-          ___           &kp DE_HASH   &kp DE_DLR    &kp DE_PIPE   &kp DE_TILD   &ud DE_GRV    ___           ___           ___       ___         ___         &to MOUSE           &kp DE_PLUS   &kp DE_PERC   &kp DE_DQUO   &kp DE_QUOT   &kp DE_SCLN   &kp DE_EURO
-          ___           ___           ___           ___           ___                         ___           ___           ___       ___         ___         ___                               ___           ___           ___           ___           ___
+          ___           &kp DE_HASH   &kp DE_DLR    &kp DE_PIPE   &kp DE_TILD   &ud DE_GRV    ___           ___           ___       ___         ___         ___                 &kp DE_PLUS   &kp DE_PERC   &kp DE_DQUO   &kp DE_QUOT   &kp DE_SCLN   &kp DE_EURO
+          ___           ___           ___           ___           ___                         ___           ___           ___       ___         ___         &to MOUSE                         ___           ___           ___           ___           ___
 )
 
 ZMK_LAYER(num,
@@ -83,8 +83,8 @@ ZMK_LAYER(num,
           ___           ___           ___           ___           ___           ___                                                                                             ___           ___           ___           ___           ___           ___
           ___           &kp PG_UP     &kp BSPC      &kp UP        &kp DELETE    &kp PG_DN                                                                                       &kp SYSREQ    &kp NUM7      &kp NUM8      &kp NUM9      &mkp MB4      &kp F12
           ___        &ct LSHIFT HOME  &ct LWIN LEFT &ct LALT DOWN &ct LCTRL RIGHT &kp END                                                                                       &kp LG(LS(S)) &ct LCTRL NUM4 &ct LALT NUM5 &ct LWIN NUM6 &ct LSHIFT KP_DOT XXX      
-          ___           &kp LCTRL     &kp H         &kp J         &kp K         &kp L         &to FBT       ___           ___       ___         ___         ___                 &kp NUM0      &kp NUM1      &kp NUM2      &kp NUM3      &kp KP_COMMA  XXX        
-          ___           ___           ___           ___           ___                         ___           ___           ___       ___         ___         ___                               ___           ___           ___           ___           ___
+          ___           &kp LCTRL     &kp H         &kp J         &kp K         &kp L         ___           ___           ___       ___         ___         ___                 &kp NUM0      &kp NUM1      &kp NUM2      &kp NUM3      &kp KP_COMMA  XXX        
+          ___           ___           ___           ___           ___                         &to FBT       ___           ___       ___         ___         ___                               ___           ___           ___           ___           ___
 )
 
 ZMK_LAYER(mouse,

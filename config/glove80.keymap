@@ -15,7 +15,7 @@
 #include "zmk-helpers/key-labels/glove80.h"
 // Source unicode-chars for desired languages
 #include "zmk-helpers/unicode-chars/german.dtsi"
-#include "../helper/ger_symbols.h"
+#include "ger_symbols.h"
 
 /* layer and key shortcuts */
 

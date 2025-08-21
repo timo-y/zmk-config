@@ -100,7 +100,7 @@ ZMK_LAYER(default,
           &kp ESC &ct LC(DE_X) DE_X &ct LC(DE_V) DE_V &kp DE_L &ct LC(DE_C) DE_C &kp DE_W                                                                             &kp DE_K      &kp DE_H      &kp DE_G      &kp DE_F      &kp DE_Q      &kp DE_SS 
           &kp TAB    &ct LSHIFT DE_U &ct LWIN DE_I &ct LALT DE_A &ct LCTRL DE_E &kp DE_O                                                                              &kp DE_S   &ct LCTRL DE_N &ct LALT DE_R &ct LWIN DE_T &ct LSHIFT DE_D &kp DE_Y     
           &kp LSHIFT    &kp DE_UE     &kp DE_OE     &kp DE_AE     &kp DE_P      &kp DE_Z    &kp SPACE     &kp BSPC      XXX       XXX         &kp RETURN  &kp LSHIFT  &kp DE_B      &kp DE_M      &kp DE_COMMA  &kp DE_PERIOD &kp DE_J      XXX
-          &status STATUS 0 XXX        XXX           XXX           XXX                       &mo SPECIAL   &kp SPACE     &kp BSPC  &kp RETURN  &kp LSHIFT  &mo NUM                   XXX           XXX           XXX           XXX           XXX
+          &status STATUS 0  XXX       XXX           XXX           XXX                       &mo SPECIAL   &kp SPACE     &kp BSPC  &kp RETURN  &kp LSHIFT  &mo NUM                   XXX           XXX           XXX           XXX           XXX
 )
 
 ZMK_LAYER(special,
@@ -114,7 +114,7 @@ ZMK_LAYER(special,
 
 ZMK_LAYER(num,
           ___           ___           ___           ___           ___                                                                                                                         ___           ___           ___           ___           ___
-          ___           &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                                          &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp F11
+          ___           ___           ___           ___           ___           ___                                                                                             ___           ___           ___           ___           ___           ___
           ___           &kp PG_UP     &kp BSPC      &kp UP        &kp DELETE    &kp PG_DN                                                                                       &kp SYSREQ    &kp NUM7      &kp NUM8      &kp NUM9      &mkp MB4      &kp F12
           ___        &ct LSHIFT HOME  &ct LWIN LEFT &ct LALT DOWN &ct LCTRL RIGHT &kp END                                                                                       &kp LG(LS(S)) &ct LCTRL NUM4 &ct LALT NUM5 &ct LWIN NUM6 &ct LSHIFT KP_DOT XXX      
           ___           &kp LCTRL     &kp H         &kp J         &kp K         &kp L         ___           ___           ___       ___         ___         ___                 &kp NUM0      &kp NUM1      &kp NUM2      &kp NUM3      &kp KP_COMMA  XXX        

@@ -42,6 +42,7 @@
 #define NUM 2
 #define MOUSE 3
 #define FBT 4
+#define STATUS 5
 
 /* custom behaviors */
 
@@ -51,6 +52,13 @@ ZMK_BEHAVIOR(ct, hold_tap,
     tapping-term-ms = <200>;
     quick-tap-ms = <150>;
     bindings = <&kp>, <&kp>;
+)
+
+// status layer hold-tap behavior (similar to magic in standard config)
+ZMK_BEHAVIOR(st, hold_tap,
+    flavor = "tap-preferred";
+    tapping-term-ms = <200>;
+    bindings = <&mo>, <&rgb_ug_status_macro>;
 )
 
 /* combos */
@@ -65,6 +73,27 @@ ZMK_BEHAVIOR(ud, macro_one_param,
 	bindings = <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER &kp SPACE>;
 )
 
+// RGB status macro
+ZMK_BEHAVIOR(rgb_ug_status_macro, macro,
+    bindings = <&rgb_ug RGB_STATUS>;
+)
+
+// Bluetooth profile macros
+ZMK_BEHAVIOR(bt_0, macro,
+    bindings = <&out OUT_BLE>, <&bt BT_SEL 0>;
+)
+
+ZMK_BEHAVIOR(bt_1, macro,
+    bindings = <&out OUT_BLE>, <&bt BT_SEL 1>;
+)
+
+ZMK_BEHAVIOR(bt_2, macro,
+    bindings = <&out OUT_BLE>, <&bt BT_SEL 2>;
+)
+
+ZMK_BEHAVIOR(bt_3, macro,
+    bindings = <&out OUT_BLE>, <&bt BT_SEL 3>;
+)
 
 ZMK_LAYER(default,
           &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                                                            &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
@@ -72,7 +101,7 @@ ZMK_LAYER(default,
           &kp ESC &ct LC(DE_X) DE_X &ct LC(DE_V) DE_V &kp DE_L &ct LC(DE_C) DE_C &kp DE_W                                                                             &kp DE_K      &kp DE_H      &kp DE_G      &kp DE_F      &kp DE_Q      &kp DE_SS 
           &kp TAB    &ct LSHIFT DE_U &ct LWIN DE_I &ct LALT DE_A &ct LCTRL DE_E &kp DE_O                                                                              &kp DE_S   &ct LCTRL DE_N &ct LALT DE_R &ct LWIN DE_T &ct LSHIFT DE_D &kp DE_Y     
           &kp LSHIFT    &kp DE_UE     &kp DE_OE     &kp DE_AE     &kp DE_P      &kp DE_Z    &kp SPACE     &kp BSPC      XXX       XXX         &kp RETURN  &kp LSHIFT  &kp DE_B      &kp DE_M      &kp DE_COMMA  &kp DE_PERIOD &kp DE_J      XXX
-          &status STATUS 0 XXX        XXX           XXX           XXX                       &mo SPECIAL   &kp SPACE     &kp BSPC  &kp RETURN  &kp LSHIFT  &mo NUM                   XXX           XXX           XXX           XXX           XXX
+          &st STATUS 0  XXX           XXX           XXX           XXX                       &mo SPECIAL   &kp SPACE     &kp BSPC  &kp RETURN  &kp LSHIFT  &mo NUM                   XXX           XXX           XXX           XXX           XXX
 )
 
 ZMK_LAYER(special,
@@ -111,3 +140,11 @@ ZMK_LAYER(func_bt,
           ___           ___           ___           ___           ___                         &to DEF       ___           ___       ___         ___         &to DEF                           ___           ___           ___           ___           ___
 )
 
+ZMK_LAYER(status,
+          &bt BT_CLR    XXX           XXX           XXX           XXX                                                                                                                         XXX           XXX           XXX           XXX           &bt BT_CLR_ALL
+          XXX           XXX           XXX           XXX           XXX           XXX                                                                                             XXX           XXX           XXX           XXX           XXX           XXX
+          XXX           &rgb_ug RGB_SPI &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG                                                                         XXX           XXX           XXX           XXX           XXX           XXX
+          &bootloader   &rgb_ug RGB_SPD &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_EFF                                                                         XXX           XXX           XXX           XXX           XXX           &bootloader
+          &sys_reset    XXX           XXX           XXX           XXX           XXX           &bt_2         &bt_3         ___       ___         ___         ___                 XXX           XXX           XXX           XXX           XXX           &sys_reset
+          ___           XXX           XXX           XXX           XXX                         &bt_0         &bt_1         &out OUT_USB ___      ___         ___                               XXX           XXX           XXX           XXX           XXX
+)

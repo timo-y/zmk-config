@@ -27,21 +27,21 @@
 #define XXX &none
 
 #define NUM1 KP_NUMBER_1
-#define NUM2 KP_NUMBER_2
+#define NUM2 KP_NUMBER_2 
 #define NUM3 KP_NUMBER_3
 #define NUM4 KP_NUMBER_4
-#define NUM5 KP_NUMBER_5
-#define NUM6 KP_NUMBER_6
-#define NUM7 KP_NUMBER_7
-#define NUM8 KP_NUMBER_8
-#define NUM9 KP_NUMBER_9
-#define NUM0 KP_NUMBER_0
+#define NUM5 KP_NUMBER_5 
+#define NUM6 KP_NUMBER_6 
+#define NUM7 KP_NUMBER_7 
+#define NUM8 KP_NUMBER_8 
+#define NUM9 KP_NUMBER_9 
+#define NUM0 KP_NUMBER_0 
 
-#define DEF 0
+#define DEF 0  // layer shortcuts, must match order in which they are defined below
 #define SPECIAL 1
 #define NUM 2
 #define MOUSE 3
-#define STATUS 5
+#define FBT 4
 
 /* custom behaviors */
 
@@ -53,16 +53,9 @@ ZMK_BEHAVIOR(ct, hold_tap,
     bindings = <&kp>, <&kp>;
 )
 
-// magic hold-tap for RGB status
-ZMK_BEHAVIOR(magic, hold_tap,
-    flavor = "tap-preferred";
-    tapping-term-ms = <200>;
-    bindings = <&mo>, <&rgb_ug_status_macro>;
-)
-
 /* combos */
 
-// NUMLOCK combo
+// NUMLOCK combo 
 ZMK_COMBO(numlock_combo, &kp KP_NLCK, RB1 RB4, NUM, 25)
 
 /* macros */
@@ -72,32 +65,14 @@ ZMK_BEHAVIOR(ud, macro_one_param,
 	bindings = <&macro_param_1to1>, <&kp MACRO_PLACEHOLDER &kp SPACE>;
 )
 
-// RGB status macro
-ZMK_BEHAVIOR(rgb_ug_status_macro, macro,
-    bindings = <&rgb_ug RGB_STATUS>;
-)
-
-// BT profile macros
-ZMK_BEHAVIOR(bt_0, macro,
-    bindings = <&out OUT_BLE>, <&bt BT_SEL 0>;
-)
-ZMK_BEHAVIOR(bt_1, macro,
-    bindings = <&out OUT_BLE>, <&bt BT_SEL 1>;
-)
-ZMK_BEHAVIOR(bt_2, macro,
-    bindings = <&out OUT_BLE>, <&bt BT_SEL 2>;
-)
-ZMK_BEHAVIOR(bt_3, macro,
-    bindings = <&out OUT_BLE>, <&bt BT_SEL 3>;
-)
 
 ZMK_LAYER(default,
           &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                                                            &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
           XXX           &kp N1        &kp N2        &kp N3        &kp N4        &kp N5                                                                                &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        XXX
-          &kp ESC &ct LC(DE_X) DE_X &ct LC(DE_V) DE_V &kp DE_L &ct LC(DE_C) DE_C &kp DE_W                                                                             &kp DE_K      &kp DE_H      &kp DE_G      &kp DE_F      &kp DE_Q      &kp DE_SS
-          &kp TAB    &ct LSHIFT DE_U &ct LWIN DE_I &ct LALT DE_A &ct LCTRL DE_E &kp DE_O                                                                              &kp DE_S   &ct LCTRL DE_N &ct LALT DE_R &ct LWIN DE_T &ct LSHIFT DE_D &kp DE_Y
+          &kp ESC &ct LC(DE_X) DE_X &ct LC(DE_V) DE_V &kp DE_L &ct LC(DE_C) DE_C &kp DE_W                                                                             &kp DE_K      &kp DE_H      &kp DE_G      &kp DE_F      &kp DE_Q      &kp DE_SS 
+          &kp TAB    &ct LSHIFT DE_U &ct LWIN DE_I &ct LALT DE_A &ct LCTRL DE_E &kp DE_O                                                                              &kp DE_S   &ct LCTRL DE_N &ct LALT DE_R &ct LWIN DE_T &ct LSHIFT DE_D &kp DE_Y     
           &kp LSHIFT    &kp DE_UE     &kp DE_OE     &kp DE_AE     &kp DE_P      &kp DE_Z    &kp SPACE     &kp BSPC      XXX       XXX         &kp RETURN  &kp LSHIFT  &kp DE_B      &kp DE_M      &kp DE_COMMA  &kp DE_PERIOD &kp DE_J      XXX
-          &mo STATUS    XXX           XXX           XXX           XXX                       &mo SPECIAL   &kp SPACE     &kp BSPC  &kp RETURN  &kp LSHIFT  &mo NUM                   XXX           XXX           XXX           XXX           XXX
+          &status STATUS 0 XXX        XXX           XXX           XXX                       &mo SPECIAL   &kp SPACE     &kp BSPC  &kp RETURN  &kp LSHIFT  &mo NUM                   XXX           XXX           XXX           XXX           XXX
 )
 
 ZMK_LAYER(special,
@@ -111,28 +86,28 @@ ZMK_LAYER(special,
 
 ZMK_LAYER(num,
           ___           ___           ___           ___           ___                                                                                                                         ___           ___           ___           ___           ___
-          ___           ___           ___           ___           ___           ___                                                                                             ___           ___           ___           ___           ___           ___
+          ___           &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                                          &kp F6        &kp F7        &kp F8        &kp F9        &kp F10       &kp F11
           ___           &kp PG_UP     &kp BSPC      &kp UP        &kp DELETE    &kp PG_DN                                                                                       &kp SYSREQ    &kp NUM7      &kp NUM8      &kp NUM9      &mkp MB4      &kp F12
-          ___        &ct LSHIFT HOME  &ct LWIN LEFT &ct LALT DOWN &ct LCTRL RIGHT &kp END                                                                                       &kp LG(LS(S)) &ct LCTRL NUM4 &ct LALT NUM5 &ct LWIN NUM6 &ct LSHIFT KP_DOT XXX
-          ___           &kp LCTRL     &kp H         &kp J         &kp K         &kp L         ___           ___           ___       ___         ___         ___                 &kp NUM0      &kp NUM1      &kp NUM2      &kp NUM3      &kp KP_COMMA  XXX
-          ___           ___           ___           ___           ___                         ___           ___           ___       ___         ___         ___                               ___           ___           ___           ___           ___
+          ___        &ct LSHIFT HOME  &ct LWIN LEFT &ct LALT DOWN &ct LCTRL RIGHT &kp END                                                                                       &kp LG(LS(S)) &ct LCTRL NUM4 &ct LALT NUM5 &ct LWIN NUM6 &ct LSHIFT KP_DOT XXX      
+          ___           &kp LCTRL     &kp H         &kp J         &kp K         &kp L         ___           ___           ___       ___         ___         ___                 &kp NUM0      &kp NUM1      &kp NUM2      &kp NUM3      &kp KP_COMMA  XXX        
+          ___           ___           ___           ___           ___                         &to FBT       ___           ___       ___         ___         ___                               ___           ___           ___           ___           ___
 )
 
 ZMK_LAYER(mouse,
           ___           ___           ___           ___           ___                                                                                                                        ___           ___           ___           ___           ___
           ___           ___           ___           ___           ___           ___                                                                                            ___           ___           ___           ___           ___           ___
-          ___           XXX           &msc SCRL_UP  &mmv MOVE_UP  &msc SCRL_DOWN XXX                                                                                           XXX           &mkp MB4      &mkp MB5      XXX           XXX           XXX
-          ___           XXX         &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT XXX                                                                                          XXX           &mkp MB1      &mkp MB3      &mkp MB2      XXX           &kp RSHIFT
-          ___           &kp LCTRL     XXX           XXX           XXX           XXX           ___           ___           ___       ___         ___         ___                XXX           XXX           XXX           XXX           XXX           &kp LALT
+          ___           XXX           &msc SCRL_UP  &mmv MOVE_UP  &msc SCRL_DOWN XXX                                                                                           XXX           &mkp MB4      &mkp MB5      XXX           XXX           XXX  
+          ___           XXX         &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT XXX                                                                                          XXX           &mkp MB1      &mkp MB3      &mkp MB2      XXX           &kp RSHIFT    
+          ___           &kp LCTRL     XXX           XXX           XXX           XXX           ___           ___           ___       ___         ___         ___                XXX           XXX           XXX           XXX           XXX           &kp LALT      
           ___           ___           ___           ___           ___                         &to DEF       ___           ___       ___         ___         &to DEF                          ___           ___           ___           ___           ___
 )
 
-ZMK_LAYER(status,
-          &bt BT_CLR        &none               &none           &none           &none                                                                                                           &none      &none      &none      &none      &bt BT_CLR_ALL
-          &none             &none               &none           &none           &none           &none                                                                                &none      &none      &none      &none      &none      &none
-          &none             &rgb_ug RGB_SPI     &rgb_ug RGB_SAI &rgb_ug RGB_HUI &rgb_ug RGB_BRI &rgb_ug RGB_TOG                                                                      &none      &none      &none      &none      &none      &none
-          &bootloader       &rgb_ug RGB_SPD     &rgb_ug RGB_SAD &rgb_ug RGB_HUD &rgb_ug RGB_BRD &rgb_ug RGB_EFF                                                                      &none      &none      &none      &none      &none      &bootloader
-          &sys_reset        &none               &none           &none           &none           &none           &bt_2     &bt_3     &none            &none     &none     &none       &none      &none      &none      &none      &none      &sys_reset
-          &none             &none               &none           &none           &none                           &bt_0     &bt_1     &out OUT_USB     &none     &none     &none                  &none      &none      &none      &none      &to DEF
+ZMK_LAYER(func_bt,
+          &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                                                                      &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
+          &kp F11       &kp F12       ___           ___           ___           ___                                                                                             ___           ___           ___           ___           ___           &kp F11
+          &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                                                                                    XXX           XXX           XXX           XXX           XXX           &kp F12 
+          &kp LSHIFT    &kp LCTRL     XXX           XXX           XXX           XXX                                                                                             XXX           XXX           XXX           XXX           XXX           &kp LALT
+          ___           ___           ___           ___           ___           ___           ___           ___           ___       ___         ___         ___                 ___           ___           ___           ___           ___           ___
+          ___           ___           ___           ___           ___                         &to DEF       ___           ___       ___         ___         &to DEF                           ___           ___           ___           ___           ___
 )
 

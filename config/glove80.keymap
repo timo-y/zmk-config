@@ -78,9 +78,11 @@ ZMK_BEHAVIOR(ud, macro_one_param,
 )
 
 // RGB status macro
+/*
 ZMK_BEHAVIOR(rgb_ug_status_macro, macro,
     bindings = <&rgb_ug RGB_STATUS>;
 )
+*/
 
 /*
 // Bluetooth profile macros

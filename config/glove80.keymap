@@ -54,6 +54,8 @@ ZMK_BEHAVIOR(ct, hold_tap,
     bindings = <&kp>, <&kp>;
 )
 
+#define CTAP(keycode) &ct LC(keycode) keycode
+
 // status layer hold-tap behavior (similar to magic in standard config)
 ZMK_BEHAVIOR(st, hold_tap,
     flavor = "tap-preferred";
@@ -98,7 +100,7 @@ ZMK_BEHAVIOR(bt_3, macro,
 ZMK_LAYER(default,
           &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                                                                                                            &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
           XXX           &kp N1        &kp N2        &kp N3        &kp N4        &kp N5                                                                                &kp N6        &kp N7        &kp N8        &kp N9        &kp N0        XXX
-          &kp ESC &ct LC(DE_X) DE_X &ct LC(DE_V) DE_V &kp DE_L &ct LC(DE_C) DE_C &kp DE_W                                                                             &kp DE_K      &kp DE_H      &kp DE_G      &kp DE_F      &kp DE_Q      &kp DE_SS 
+          &kp ESC       CTAP(DE_X)    CTAP(DE_V)    &kp DE_L      CTAP(DE_C)    &kp DE_W                                                                              &kp DE_K      &kp DE_H      &kp DE_G      &kp DE_F      &kp DE_Q      &kp DE_SS 
           &kp TAB    &ct LSHIFT DE_U &ct LWIN DE_I &ct LALT DE_A &ct LCTRL DE_E &kp DE_O                                                                              &kp DE_S   &ct LCTRL DE_N &ct LALT DE_R &ct LWIN DE_T &ct LSHIFT DE_D &kp DE_Y     
           &kp LSHIFT    &kp DE_UE     &kp DE_OE     &kp DE_AE     &kp DE_P      &kp DE_Z    &kp SPACE     &kp BSPC      XXX       XXX         &kp RETURN  &kp LSHIFT  &kp DE_B      &kp DE_M      &kp DE_COMMA  &kp DE_PERIOD &kp DE_J      XXX
           &st STATUS 0  XXX           XXX           XXX           XXX                       &mo SPECIAL   &kp SPACE     &kp BSPC  &kp RETURN  &kp LSHIFT  &mo NUM                   XXX           XXX           XXX           XXX           XXX

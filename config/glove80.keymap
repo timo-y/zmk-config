@@ -57,13 +57,11 @@ ZMK_BEHAVIOR(ct, hold_tap,
 #define CTAP(keycode) &ct LC(keycode) keycode
 
 // status layer hold-tap behavior (similar to magic in standard config)
-/*
 ZMK_BEHAVIOR(st, hold_tap,
     flavor = "tap-preferred";
     tapping-term-ms = <200>;
     bindings = <&mo>, <&rgb_ug_status_macro>;
 )
-*/
 
 /* combos */
 
@@ -78,11 +76,9 @@ ZMK_BEHAVIOR(ud, macro_one_param,
 )
 
 // RGB status macro
-/*
-ZMK_BEHAVIOR(rgb_ug_status_macro, macro,
+ZMK_BEHAVIOR(rgb_ug_status_macro, macro_one_param,
     bindings = <&rgb_ug RGB_STATUS>;
 )
-*/
 
 /*
 // Bluetooth profile macros
